@@ -1,5 +1,4 @@
 // Mock data for the farm marketplace
-
 export interface MandiRate {
   id: string;
   crop: string;
@@ -9,7 +8,6 @@ export interface MandiRate {
   date: string;
   change: number;
 }
-
 export interface Listing {
   id: string;
   supplierId: string;
@@ -31,7 +29,6 @@ export interface Listing {
   status: 'published' | 'pending' | 'closed';
   createdAt: string;
 }
-
 export interface Order {
   id: string;
   listingId: string;
@@ -44,7 +41,6 @@ export interface Order {
   status: 'inquiry' | 'negotiation' | 'confirmed' | 'completed';
   createdAt: string;
 }
-
 export const mandiRates: MandiRate[] = [
   {
     id: '1',
@@ -92,7 +88,6 @@ export const mandiRates: MandiRate[] = [
     change: 0,
   },
 ];
-
 export const listings: Listing[] = [
   {
     id: '1',
@@ -217,7 +212,6 @@ export const listings: Listing[] = [
     createdAt: '2025-10-17',
   },
 ];
-
 export const mockOrders: Order[] = [
   {
     id: 'ord1',
@@ -256,7 +250,6 @@ export const mockOrders: Order[] = [
     createdAt: '2025-10-19',
   },
 ];
-
 export const cropOptions = [
   'Rice (Basmati)',
   'Rice (Non-Basmati)',
@@ -269,18 +262,121 @@ export const cropOptions = [
   'Cotton',
   'Sugarcane',
 ];
-
 export const gradeOptions = ['Grade A', 'Grade B', 'Premium', 'Standard'];
-
 export const unitOptions = ['kg', 'quintal', 'ton', 'crate', 'box'];
-
 export const mandiOptions = [
-  'Azadpur Mandi, Delhi',
+  // Andhra Pradesh
+  'Guntur Mandi, Andhra Pradesh',
+  'Vijayawada Mandi, Andhra Pradesh',
+  'Rajahmundry Mandi, Andhra Pradesh',
+  // Arunachal Pradesh
+  'Itanagar Mandi, Arunachal Pradesh',
+  'Naharlagun Mandi, Arunachal Pradesh',
+  // Assam
+  'Guwahati Mandi, Assam',
+  'Silchar Mandi, Assam',
+  'Jorhat Mandi, Assam',
+  // Bihar
+  'Patna Mandi, Bihar',
+  'Gaya Mandi, Bihar',
+  'Muzaffarpur Mandi, Bihar',
+  // Chhattisgarh
+  'Raipur Mandi, Chhattisgarh',
+  'Bilaspur Mandi, Chhattisgarh',
+  'Durg Mandi, Chhattisgarh',
+  // Goa
+  'Panaji Mandi, Goa',
+  'Margao Mandi, Goa',
+  // Gujarat
+  'Ahmedabad Jamalpur Market, Gujarat',
+  'Rajkot APMC, Gujarat',
+  'Surat APMC, Gujarat',
+  'Unjha APMC (Jeera), Gujarat',
+  // Haryana
   'Karnal Mandi, Haryana',
+  'Kurukshetra Mandi, Haryana',
+  'Hisar Mandi, Haryana',
+  // Himachal Pradesh
+  'Shimla Sabzi Mandi, Himachal Pradesh',
+  'Solan Mandi, Himachal Pradesh',
+  'Mandi Town APMC, Himachal Pradesh',
+  // Jharkhand
+  'Ranchi Mandi, Jharkhand',
+  'Dhanbad Mandi, Jharkhand',
+  'Jamshedpur Mandi, Jharkhand',
+  // Karnataka
+  'Bengaluru APMC (Yeshwanthpur), Karnataka',
+  'Hubballi APMC, Karnataka',
+  'Mysuru APMC, Karnataka',
+  // Kerala
+  'Thrissur Market, Kerala',
+  'Kochi Market, Kerala',
+  'Thiruvananthapuram Market, Kerala',
+  // Madhya Pradesh
+  'Indore APMC (Chandni), Madhya Pradesh',
+  'Bhopal Mandi, Madhya Pradesh',
+  'Ujjain Mandi, Madhya Pradesh',
+  // Maharashtra
+  'Lasalgaon APMC (Onion), Maharashtra',
+  'Nashik APMC, Maharashtra',
+  'Pune APMC (Gultekdi), Maharashtra',
+  'Vashi APMC (Navi Mumbai), Maharashtra',
+  // Manipur
+  'Imphal Market, Manipur',
+  // Meghalaya
+  'Shillong Market, Meghalaya',
+  'Tura Market, Meghalaya',
+  // Mizoram
+  'Aizawl Market, Mizoram',
+  // Nagaland
+  'Dimapur Market, Nagaland',
+  'Kohima Market, Nagaland',
+  // Odisha
+  'Bhubaneswar Mandi, Odisha',
+  'Cuttack Mandi, Odisha',
+  'Sambalpur Mandi, Odisha',
+  // Punjab
+  'Ludhiana Mandi, Punjab',
+  'Amritsar Mandi, Punjab',
+  'Moga Mandi, Punjab',
+  // Rajasthan
+  'Kota APMC, Rajasthan',
+  'Jaipur Muhana Mandi, Rajasthan',
+  'Sri Ganganagar Mandi, Rajasthan',
+  // Sikkim
+  'Gangtok Market, Sikkim',
+  // Tamil Nadu
   'Koyambedu Market, Tamil Nadu',
-  'Lasalgaon Mandi, Maharashtra',
+  'Salem Mandi, Tamil Nadu',
+  'Madurai Market, Tamil Nadu',
+  // Telangana
+  'Hyderabad Bowenpally Market, Telangana',
+  'Warangal Mandi, Telangana',
+  'Karimnagar Mandi, Telangana',
+  // Tripura
+  'Agartala Market, Tripura',
+  // Uttar Pradesh
   'Agra Mandi, Uttar Pradesh',
-  'Nashik Mandi, Maharashtra',
-  'Pune Market, Maharashtra',
-  'Bangalore Market, Karnataka',
+  'Kanpur Mandi, Uttar Pradesh',
+  'Varanasi Mandi, Uttar Pradesh',
+  'Lucknow Mandi, Uttar Pradesh',
+  // Uttarakhand
+  'Dehradun Mandi, Uttarakhand',
+  'Haldwani Mandi, Uttarakhand',
+  // West Bengal
+  'Kolkata Koley Market, West Bengal',
+  'Siliguri Market, West Bengal',
+  'Burdwan Mandi, West Bengal',
+  // Union Territories
+  'Azadpur Mandi, Delhi',
+  'Okhla Sabzi Mandi, Delhi',
+  'Chandigarh Grain Market, Chandigarh',
+  'Srinagar Fruit Mandi, Jammu & Kashmir',
+  'Jammu Narwal Mandi, Jammu & Kashmir',
+  'Leh Vegetable Market, Ladakh',
+  'Puducherry Market, Puducherry',
+  'Port Blair Market, Andaman & Nicobar Islands',
+  'Daman Market, Dadra & Nagar Haveli and Daman & Diu',
+  'Silvassa Market, Dadra & Nagar Haveli and Daman & Diu',
+  'Aizawl New Market, Mizoram',
 ];
