@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Search, TrendingUp, Users, Shield, ArrowRight } from "lucide-react";
+import { Search, TrendingUp, Users, Shield, ArrowRight, Plus } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { listingsApi } from "../utils/api";
@@ -12,7 +12,7 @@ interface HomePageProps {
 }
 
 export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
-  const [listings, setListings] = useState<any[]>([]);
+  const [listings, setListings] = useState<any>([]);
 
   useEffect(() => {
     fetchListings();
@@ -43,11 +43,11 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
             
             {/* Search Bar */}
             <div className="bg-white rounded-lg shadow-lg p-2 flex gap-2 max-w-2xl mx-auto">
-              <Input 
+              <Input
                 placeholder="Search crop, mandi, or location..."
                 className="border-0 shadow-none"
               />
-              <Button 
+              <Button
                 onClick={() => onNavigate('market')}
                 className="bg-green-600 hover:bg-green-700 flex-shrink-0"
               >
@@ -59,13 +59,13 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               <span className="text-gray-600">Popular:</span>
               {['Rice', 'Wheat', 'Tomato', 'Onion'].map((crop) => (
-                <button
+                <Button
                   key={crop}
                   onClick={() => onNavigate('market')}
                   className="text-green-600 hover:text-green-700 hover:underline"
                 >
                   {crop}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -115,7 +115,7 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-gray-900">Featured Listings</h2>
-            <Button 
+            <Button
               variant="outline"
               onClick={() => onNavigate('market')}
               className="gap-2"
@@ -127,13 +127,13 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.slice(0, 3).map((listing) => (
-              <Card 
+              <Card
                 key={listing.id} 
                 className="hover:shadow-lg transition-shadow cursor-pointer"
                 onClick={() => onNavigate('product', listing.id)}
               >
                 <div className="aspect-video overflow-hidden rounded-t-lg">
-                  <img 
+                  <img
                     src={listing.images[0]} 
                     alt={listing.crop}
                     className="w-full h-full object-cover"
@@ -158,8 +158,8 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
                   </div>
                   
                   <div className="flex items-center justify-between text-sm text-gray-600">
-                    <span>{listing.quantity} {listing.unit} available</span>
-                    <span>Grade {listing.grade}</span>
+                    {listing.quantity} {listing.unit} available
+                    Grade {listing.grade}
                   </div>
                 </CardContent>
               </Card>
@@ -176,14 +176,23 @@ export function HomePage({ onNavigate, onOpenAuth }: HomePageProps) {
             Join thousands of farmers and buyers who trust KrishiConnect for fair, transparent trade.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button 
+            <Button
               size="lg"
               variant="secondary"
               onClick={() => onOpenAuth('signup', 'supplier')}
             >
               I'm a Supplier
             </Button>
-            <Button 
+            <Button
+              size="lg"
+              variant="secondary"
+              className="bg-white text-green-600 hover:bg-green-50"
+              onClick={() => onNavigate('supplier-dashboard')}
+            >
+              <Plus className="h-5 w-5 mr-2" />
+              List Your Crops
+            </Button>
+            <Button
               size="lg"
               variant="outline"
               className="bg-transparent text-white border-white hover:bg-white hover:text-green-600"
