@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd 'Farm-Product Marketplace Structure (1)' && npm install && npm run build",
+  "outputDirectory": "Farm-Product Marketplace Structure (1)/build",
+  "framework": "vite",
+  "installCommand": "cd 'Farm-Product Marketplace Structure (1)' && npm install"
+}
